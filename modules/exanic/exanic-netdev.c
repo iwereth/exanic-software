@@ -1335,9 +1335,9 @@ static int exanic_netdev_restart_autoneg(struct net_device* ndev)
 static void exanic_netdev_get_drvinfo(struct net_device *ndev,
                                       struct ethtool_drvinfo *info)
 {
-    strlcpy(info->driver, DRV_NAME, sizeof(info->driver));
-    strlcpy(info->version, DRV_VERSION, sizeof(info->version));
-    strlcpy(info->bus_info, dev_name(ndev->dev.parent), sizeof(info->bus_info));
+    strncpy(info->driver, DRV_NAME, sizeof(info->driver));
+    strncpy(info->version, DRV_VERSION, sizeof(info->version));
+    strncpy(info->bus_info, dev_name(ndev->dev.parent), sizeof(info->bus_info));
 }
 
 static u32 exanic_netdev_get_link(struct net_device *ndev)
